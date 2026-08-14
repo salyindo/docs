@@ -1,0 +1,44 @@
+@startuml UseCase
+left to right direction 
+
+actor "inventaire" as iventaire
+
+
+rectangle "inventaire"{
+
+    usecase "voir gestion produit" as vgp 
+    usecase "voir gestion client" as vgc
+    usecase "voir gestion fournisseur" as vgf
+    usecase "enregistrer article" as ea
+    usecase "enregistrer produit" as ep
+    usecase "enregistrer fournisseur" as ef
+    usecase "filtrer les produits" as fp
+   usecase "se connecter" as se
+
+
+
+
+
+}
+
+
+iventaire ->vgp 
+iventaire ->vgc  
+iventaire ->vgf    
+
+vgp ..>se:<<include>>
+vgc ..>se:<<include>>
+vgf ..>se:<<include>>
+
+vgp ..>ea:<<include>>
+vgp ..>fp:<<extend>>
+vgc ..>ep:<<include>>
+vgf ..>ef:<<include>>
+
+
+
+
+
+
+
+@enduml

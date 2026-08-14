@@ -1,0 +1,53 @@
+@startuml
+left to right direction
+actor "charge_vente" as A
+
+rectangle "vente/POS"{
+
+    usecase "lister statistiques" as LS 
+    usecase "voir encaissements" as VE 
+    usecase "voir en cours clients total" as VECT 
+    usecase "voir commandes enregistres" as VCE 
+    usecase "enregistrer vente" as EV
+    usecase "selectionner client" as SC
+    usecase "ajouter article" as AA
+    usecase "selectionner article" as SA
+    usecase "saisir quantite" as SQ
+    
+    usecase "selectionner mode reglement" as SMR
+    usecase "saisir montant versement" as SMV
+    usecase "lister commandes" as LC
+    usecase "voir lignes" as VL
+
+}
+
+
+A-> LS
+A-> EV
+A-> LC
+EV ..> SC :<<include>>
+EV ..> AA :<<include>>
+EV ..> SMR :<<include>>
+EV ..> SMV :<<include>>
+AA ..> SA :<<include>>
+AA ..> SQ :<<include>>
+LS <.. VE:<<extend>>
+LS <.. VECT:<<extend>>
+LS <.. VCE:<<extend>>
+LC <.. VL:<<extend>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@enduml

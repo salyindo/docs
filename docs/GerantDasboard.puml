@@ -1,0 +1,43 @@
+@startuml usecase
+left to right direction
+actor "admin" as A
+
+rectangle "dashboard" {
+
+    usecase "Se connecter/Deconnexion" as SC
+
+    usecase "lister statistiques" as LS
+    usecase "consulter parti1" as VI1
+    usecase "lister ventes recentes" as LVR
+    usecase "lister dettes du jour" as LDJ
+    usecase "lister ruptures et alertes" as LRA
+
+    usecase "consulter parti2" as VI2
+    usecase "lister livraisons du jour" as LLJ
+    usecase "lister clients debiteurs" as LCD
+    usecase "lister solde fournisseurs" as LSF
+
+}
+
+
+A-> LS
+A-> VI1
+A-> VI2
+
+
+VI1 <.. LVR:<<extend>>
+VI1 <.. LDJ:<<extend>>
+VI1 <.. LRA:<<extend>>
+
+VI2 <.. LLJ:<<extend>>
+VI2 <.. LCD:<<extend>>
+VI2 <.. LSF:<<extend>>
+
+LS ..> SC:<<include>>
+VI1 ..> SC:<<include>>
+VI2 ..> SC:<<include>>
+
+
+@enduml
+
+

@@ -1,0 +1,27 @@
+@startuml approvisionnement
+
+left to right direction
+actor charge_stock as AD
+rectangle "MENU APPRO"{
+    usecase "approvisionnement"  as A
+    usecase "voir CoutTotalEntres"  as CTE
+    usecase "voir BonReception" as BR
+    usecase "voir FournisseurActifs" as FA
+    usecase "Lister Bordereaux Livraisons" as BL
+    usecase " voir lignes" as L
+    usecase "receptionner" as R
+    usecase "Se connecter" as SC
+}
+
+AD --> A
+A ..> CTE:<<include>>
+A ..> BR:<<include>>
+A ..> FA:<<include>>
+A ..> BL:<<include>>
+A ..> SC:<<include>>
+
+
+BL <..L:<<extend>>
+BL <..R:<<extend>>
+
+@enduml
