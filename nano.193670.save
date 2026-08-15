@@ -29,24 +29,22 @@ CREATE TABLE Produit (
     stockInitial INTEGER NOT NULL
 );
 
+CREATE TABLE ModePaiement (
+    id SERIAL PRIMARY KEY,
+    mode VARCHAR(100) NOT NULL
+);
+
 CREATE TABLE Fournisseur (
     id SERIAL PRIMARY KEY,
     nom VARCHAR(100) NOT NULL,
+    email VARCHAR(150),
     tel VARCHAR(30),
     adresse VARCHAR(255)
 );
 
-
-DELETE FROM Fournisseur
-DELETE COLUMN email;
 CREATE TABLE StatutAppro (
     id SERIAL PRIMARY KEY,
     nom VARCHAR(100) NOT NULL
-);
-
-CREATE TABLE ModePaiement (
-    id SERIAL PRIMARY KEY,
-    mode VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE Commande (
@@ -91,54 +89,3 @@ CREATE TABLE LigneAppro (
     appro_id INTEGER NOT NULL REFERENCES Appro(id),
     produit_id INTEGER NOT NULL REFERENCES Produit(id)
 );
-
-
-INSERT INTO Produit (libelle, prixVente, stockInitial)
-VALUES
-('Ordinateur', 350000, 10),
-('Telephone', 200000, 15),
-('Clavier', 25000, 20);
-
-
-SELECT * FROM Produit;
-
-
-DELETE FROM Produit
-WHERE libelle IN ('Ordinateur', 'Telephone', 'Clavier');
-
-
-INSERT INTO Produit (libelle, prixVente, stockInitial)
-VALUES
-('Bidon d''huile 5L', 8000, 5),
-('Carton de lait', 15000, 40),
-('Carton de savon', 12000, 3),
-('Huile de palme 1L', 2000, 0),
-('Paquet de sucre 1kg', 1500, 200),
-('Sac de riz 50kg', 25000, 100);
-
-DROP TABLE Produit;
-
-
-SELECT * FROM produit WHERE id = 1;
-
-
-INSERT INTO Client (nom, prenom, email, tel, limiteCredit)
-VALUES
-('Diop', 'Moussa', 'moussa.diop@gmail.com', '771234567', 500000.00),
-('Fall', 'Aminata', 'aminata.fall@gmail.com', '781234568', 300000.00),
-('Ndiaye', 'Ibrahima', 'ibrahima.ndiaye@gmail.com', '701234569', 750000.00),
-('Sarr', 'Fatou', 'fatou.sarr@gmail.com', '761234570', 250000.00),
-('Ba', 'Ousmane', 'ousmane.ba@gmail.com', '751234571', 1000000.00);
-
-
-
-SELECT * FROM Client;
-
-
-
-INSERT INTO Fournisseur (nom,tel, adresse)
-VALUES
-    ('Grossiste Diallo & Fils', '77 456 78 90', ' Dakar'),
-    ('SENEGRO Alimentaire','77 821 45 12', 'Dakar'),
-    ('Ndiaye Import-Export', '76 234 56 78', 'Dakar'),
-    ('Tata Distribution','78 901 23 45', 'Dakar');

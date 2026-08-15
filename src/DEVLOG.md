@@ -66,7 +66,7 @@ Au début, je n'avais pas bien compris le principe du Single.
 
 - **Heure de réalisation** : [9h 11h]
 
-## Step 2.1 — Création des entités POO
+
 - **Ce qui a été fait** :
 
 J'ai créé les différentes classes du dossier `src/Model/Entity` à partir du diagramme de classes UML.
@@ -104,3 +104,12 @@ approche n'était pas adaptée à la conception POO demandée.
 
 J'ai donc remplacé les attributs `public` par des attributs `private`
 afin de protéger les données de l'objet.
+
+
+
+
+#### 📌 Step 2.2 (11h00 - 13h00) : Repositories & SQL Sécurisé
+- **Livrable** : `ProduitRepository.php`, `ClientRepository.php`, `FournisseurRepository.php`.
+- **Commit Git à exécuter** :
+  ```bash
+  git commit -m "feat(repository): mise en place des classes Repository avec requetes preparees PDO"

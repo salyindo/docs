@@ -11,7 +11,7 @@ class Database
         try {
 
             $this->pdo = new PDO(
-                "pgsql:host=localhost;port=5432;dbname=store_manager",
+                "pgsql:host=localhost;port=5432;dbname=test_store_manager",
                 "postgres",
                 "Marou2002?"
             );
@@ -33,10 +33,12 @@ class Database
             );
         }
     }
-public function getConnection(): PDO
-{
-    return $this->pdo;
-}
+
+    public function getConnection(): PDO
+    {
+        return $this->pdo;
+    }
+
     public static function getInstance(): Database
     {
         if (self::$instance === null) {
