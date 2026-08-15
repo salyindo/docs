@@ -58,3 +58,49 @@
 
 - **Difficultés / Obstacles** :
 Au début, je n'avais pas bien compris le principe du Single.
+
+
+
+
+### ☀️ Step 2.1 — Entités POO
+
+- **Heure de réalisation** : [9h 11h]
+
+## Step 2.1 — Création des entités POO
+- **Ce qui a été fait** :
+
+J'ai créé les différentes classes du dossier `src/Model/Entity` à partir du diagramme de classes UML.
+
+Chaque classe contient :
+- des attributs `private` pour protéger les données ;
+- un constructeur pour initialiser les attributs ;
+- des getters pour lire les attributs ;
+- des setters pour modifier les attributs.
+
+J'ai également compris que les getters et setters sont des méthodes permettant de contrôler l'accès aux attributs privés d'un objet.
+
+Classes créées :
+- Produit
+- Client
+- Commande
+- LigneCommande
+- Fournisseur
+- Appro
+- LigneAppro
+- Reglement
+- Utilisateur
+- Role
+- StatutAppro
+- ModePaiement
+
+
+- **Difficultés / Obstacles** :
+Au début, j'avais déclaré les attributs des classes en `public`.
+Cela permettait d'accéder directement aux données depuis l'extérieur
+de la classe.
+
+En étudiant le principe d'encapsulation, j'ai compris que cette
+approche n'était pas adaptée à la conception POO demandée.
+
+J'ai donc remplacé les attributs `public` par des attributs `private`
+afin de protéger les données de l'objet.
