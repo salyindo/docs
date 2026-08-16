@@ -1,5 +1,5 @@
 # 📓 Journal de Développement (DEVLOG)
-**Nom & Prénom** : Saly Faye
+**Nom & Prénom** :[ FAYE & SALY]
 **Projet** : StoreManager Pro (ERP PHP/POO) 
 
 
@@ -110,6 +110,21 @@ afin de protéger les données de l'objet.
 
 #### 📌 Step 2.2 (11h00 - 13h00) : Repositories & SQL Sécurisé
 - **Livrable** : `ProduitRepository.php`, `ClientRepository.php`, `FournisseurRepository.php`.
-- **Commit Git à exécuter** :
-  ```bash
-  git commit -m "feat(repository): mise en place des classes Repository avec requetes preparees PDO"
+- **Heure de réalisation** : [ 11h 13h]
+- **Ce qui a été fait** :
+- **Difficultés / Obstacles** :
+
+
+-### Step 2.3 — VenteService
+- **Heure de réalisation** : Dimanche[10h 13h]
+- **Ce qui a été fait** :
+- Création de `src/Service/VenteService.php`
+- Connexion à la base de données avec PDO
+- Injection de `ProduitRepository` et `ClientRepository`
+- Vérification de l'existence du client
+- Vérification de l'existence des produits
+- Vérification des quantités
+- Vérification du stock disponible
+- Calcul du total de la commande
+- Mise en place de la transaction PDO
+- Gestion des erreurs avec `try/catch` et `rollBack()`

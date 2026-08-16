@@ -1,6 +1,5 @@
 <?php
 
-
 class ProduitRepository
 {
     private PDO $pdo;
@@ -14,36 +13,44 @@ class ProduitRepository
     {
         $sql = "SELECT * FROM Produit";
 
-        $statement = $this->pdo->query($sql);
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
 
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function getProduitById(int $id): array|false
-{
-   
-    $sql = "SELECT * FROM produit WHERE id = :id";
+    {
+        $sql = "SELECT * FROM Produit WHERE id = :id";
 
-    $stmt = $this->pdo->prepare($sql);
+        $stmt = $this->pdo->prepare($sql);
 
-    $stmt->execute([
-        ':id' => $id
-    ]);
+        $stmt->execute([
+            ':id' => $id
+        ]);
 
-    return $stmt->fetch();
-}
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 
-public function addProduit(Produit $produit): bool
-{
-    $sql = "INSERT INTO Produit (libelle, prixVente, stockInitial)
-            VALUES (:libelle, :prixVente, :stockInitial)";
+    public function addProduit(Produit $produit): bool
+    {
+        $sql = "INSERT INTO Produit (
+                    libelle,
+                    prixVente,
+                    stockInitial
+                )
+                VALUES (
+                    :libelle,
+                    :prixVente,
+                    :stockInitial
+                )";
 
-    $stmt = $this->pdo->prepare($sql);
+        $stmt = $this->pdo->prepare($sql);
 
-    return $stmt->execute([
-        ':libelle' => $produit->getLibelle(),
-        ':prixVente' => $produit->getPrixVente(),
-        ':stockInitial' => $produit->getStockInitial()
-    ]);
-}
+        return $stmt->execute([
+            ':libelle' => $produit->getLibelle(),
+            ':prixVente' => $produit->getPrixVente(),
+            ':stockInitial' => $produit->getStockInitial()
+        ]);
+    }
 }

@@ -31,9 +31,13 @@ class Commande{
 }
 
 
-class StatutAppro{
+class Dette {
     - id : int
-    - nom : string
+    - montantInitial : float
+    - montantRestant : float
+    - dateCreation : Date
+    - dateEcheance : Date
+    - statut : String
 }
 
 
@@ -104,9 +108,7 @@ Reglement "0..*" --> "1" Commande
 
 Appro "0..*" --> "1" Utilisateur 
 Commande "0..*" --> "1" Utilisateur 
-
-
-
+Dette "1" --> "0..*" Reglement
 
 
 

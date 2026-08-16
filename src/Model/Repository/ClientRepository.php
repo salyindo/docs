@@ -1,6 +1,5 @@
 <?php
 
-
 class ClientRepository
 {
     private PDO $pdo;
@@ -13,26 +12,21 @@ class ClientRepository
     public function getAllClient(): array
     {
         $sql = "SELECT * FROM Client";
-
-        $statement = $this->pdo->query($sql);
-
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
+        $result=query($pdo,$sql,false);
+        return $result;
+       
     }
 
-    public function getClientById(int $id):
-{
-   
-    $sql = "SELECT * FROM Client WHERE id = :id";
+    public function getClientById(int $id): array|false
+    {
+        $sql = "SELECT * FROM Client WHERE id = :id";
 
-    $stmt = $this->pdo->prepare($sql);
+        $stmt = $this->pdo->prepare($sql);
 
-    $stmt->execute([
-        ':id' => $id
-    ]);
+        $stmt->execute([
+            ':id' => $id
+        ]);
 
-    return $stmt->fetch();
-}
-
-
-
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }

@@ -1,9 +1,7 @@
 <?php
 
-
-class FournisseurRepository{
-
-
+class FournisseurRepository
+{
     private PDO $pdo;
 
     public function __construct()
@@ -14,24 +12,23 @@ class FournisseurRepository{
     public function listerFournisseur(): array
     {
         $sql = "SELECT * FROM Fournisseur";
-        $statement = $this->pdo->query($sql);
 
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getFournisseurtById(int $id): array|false
-{
-   
-    $sql = "SELECT * FROM fournisseur WHERE id = :id";
+    public function getFournisseurById(int $id): array|false
+    {
+        $sql = "SELECT * FROM Fournisseur WHERE id = :id";
 
-    $stmt = $this->pdo->prepare($sql);
+        $stmt = $this->pdo->prepare($sql);
 
-    $stmt->execute([
-        ':id' => $id
-    ]);
+        $stmt->execute([
+            ':id' => $id
+        ]);
 
-    return $stmt->fetch();
-}
-
-
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }
