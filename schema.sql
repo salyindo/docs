@@ -259,11 +259,11 @@ VALUES
 ('Sow', 'Oumar', 'oumar.sow@gmail.com', '751234571', 200000.00);
 SELECT * FROM Client;
 SELECT * FROM Commande;
+SELECT * FROM Produit;
 
 
 INSERT INTO Fournisseur (
     nom,
-    tel,
     adresse
 )
 VALUES

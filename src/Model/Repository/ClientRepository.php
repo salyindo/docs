@@ -1,27 +1,27 @@
 <?php
-
 class ClientRepository
 {
-    private PDO $pdo;
+    private static PDO $pdo;
 
-    public function __construct()
+    public static function init(): void
     {
-        $this->pdo = Database::getInstance()->getConnection();
+        self::$pdo = Database::getInstance()->getConnection();
     }
 
-    public function getAllClient(): array
+    public static function getAllClient(): array
     {
         $sql = "SELECT * FROM Client";
-        $result=query($pdo,$sql,false);
-        return $result;
-       
+
+        $statement = self::$pdo->query($sql);
+
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getClientById(int $id): array|false
+    public static function getClientById(int $id): array|false
     {
         $sql = "SELECT * FROM Client WHERE id = :id";
 
-        $stmt = $this->pdo->prepare($sql);
+        $stmt = self::$pdo->prepare($sql);
 
         $stmt->execute([
             ':id' => $id

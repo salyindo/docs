@@ -3,16 +3,12 @@
 class Approviosionnement
 
 {
-    private int $id;
+    
     private DateTime $dateApprovisionnement;
-    private Fournisseur $fournisseurId;
-    private Utilisateur $utilisateurId;
+    private Fournisseur $fournisseur;
+    private Utilisateur $utilisateur;
 
 
-    public function getId(): int
-    {
-        return $this->id;
-    }
 }
 
  

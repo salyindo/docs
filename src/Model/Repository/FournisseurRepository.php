@@ -2,28 +2,28 @@
 
 class FournisseurRepository
 {
-    private PDO $pdo;
+    private static PDO $pdo;
 
-    public function __construct()
+    public static function init(): void
     {
-        $this->pdo = Database::getInstance()->getConnection();
+        self::$pdo = Database::getInstance()->getConnection();
     }
 
-    public function listerFournisseur(): array
+    public static function listerFournisseur(): array
     {
         $sql = "SELECT * FROM Fournisseur";
 
-        $stmt = $this->pdo->prepare($sql);
+        $stmt = self::$pdo->prepare($sql);
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getFournisseurById(int $id): array|false
+    public static function getFournisseurById(int $id): array|false
     {
         $sql = "SELECT * FROM Fournisseur WHERE id = :id";
 
-        $stmt = $this->pdo->prepare($sql);
+        $stmt = self::$pdo->prepare($sql);
 
         $stmt->execute([
             ':id' => $id

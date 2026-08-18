@@ -2,7 +2,7 @@
 
 class Produit
 {
-    private int $id;
+  
     private string $libelle;
     private float $prixVente;
     private int $stockInitial;
@@ -10,10 +10,6 @@ class Produit
 
  
 
-    public function getProduitById(): int
-    {
-        return $this->id;
-    }
-
+    
   
 }

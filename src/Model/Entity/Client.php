@@ -2,7 +2,7 @@
 
 class Client
 {
-    private int $id;
+ 
     private string $nom;
     private string $prenom;
     private string $email;
@@ -11,10 +11,7 @@ class Client
 
    
 
-    public function getId(): int
-    {
-        return $this->id;
-    }
+  
 
  
 }

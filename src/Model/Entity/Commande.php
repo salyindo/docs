@@ -2,20 +2,15 @@
 
 class Commande
 {
-    private int $id;
     private Date $dateCommande;
     private float $montantTotal;
     private float $avance;
-    private Client $clientId;
-    private ModePaiement $modePaiementId;
-    private Utilisateur $utilisateurId;
+    private Client $client;
+    private ModePaiement $modePaiement;
+    private Utilisateur $utilisateur;
 
-   
-    public function getId(): int
-    {
-        return $this->id;
-    }
 
+ 
    
 
   
